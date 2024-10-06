@@ -43,9 +43,14 @@ app.get('/2plus2', (request, response) => {
 
 // Dice Roller
 app.get('/d6', (request, response) => {
-	console.log('Calling "d6" on the Node.js server.')
-	response.type('text/plain')
-	response.send('5')
+	console.log('Rolling two d6 dice on the Node.js server.');
+
+    // Generate two random numbers between 1 and 6
+    const dice1 = Math.floor(Math.random() * 6) + 1;
+    const dice2 = Math.floor(Math.random() * 6) + 1;
+
+    // Send both numbers as JSON object
+    response.json({ dice1, dice2 });
 })
 
 // Add x and y which are both passed in on the URL. 
