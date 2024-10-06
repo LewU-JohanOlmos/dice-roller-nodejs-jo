@@ -16,6 +16,22 @@
 <div id="fetch-2plus2-result"></div>
 <br><br>
 
+<script>
+	async function rollDice() {
+		// Fetch the dice roll result from the server
+		const response = await fetch('/d6');
+		const data = await response.json();
+
+		// Display the result in the HTML
+		document.getElementById('result').textContent = `You rolled: ${data.dice1} and ${data.dice2}`;
+	}
+</script>
+
+<h1>Dice Roller</h1>
+<button onclick="rollDice()">Roll</button>
+<p id="result"></p>
+<br><br>
+
 Add two integers on the Node.js server.<br />
 <select onchange="addTwoIntegers()" id="x-value">
 	<option>1</option>
